@@ -13,6 +13,10 @@
   },
   "author": "Quinten Jansen",
   "license": "ISC",
+  "dependencies":{
+    "connect":"*",
+    "body-parser":"*"
+  },
   "bugs": {
     "url": "https://github.com/qjmjansen/myApp/issues"
   },
