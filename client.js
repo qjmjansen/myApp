@@ -14,12 +14,7 @@ function PostCode(codestring) {
   var post_options = {
       host: 'localhost',
       port: '3456',
-      path: '/compile',
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'Content-Length': Buffer.byteLength(post_data)
-      }
+      method: 'POST'
   };
 
   // Set up the request
@@ -35,9 +30,7 @@ function PostCode(codestring) {
   post_req.end();
 
   console.log(post_data)
-
   console.log(res)
-
 }  
 
 
