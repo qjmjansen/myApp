@@ -1,22 +1,24 @@
-var http = require('http');
 var connect = require('connect');
-var bodyParser = require('body-parser');
 
 var app = connect()
-	.use(bodyParser.urlencoded(
-		{extended:true}
-		))
-		.use(function(req,res){
+	.use(function(req,res){
 
-			var parsedInfo = {};
+		if(req.url == "/hello"){
+			console.log("sending plain");
+			res.end("Hello from server")
+		}
+		else if(req.url == "/printRequestHeaders"){
 
-			parsedInfo.firstName = req.body.userFirstName;
-			parsedInfo.lastName = req.body.userLastName;
+			var headers = req.headers;
+			console.log("echoing headers")
+			console.log(headers);
+			res.end("Headers printed in console");
+		}
+		else{
+			res.end("Nothing else matched")
+		}
 
-			res.end("User info parsed from form:" + parsedInfo.firstName + " " + parsedInfo.lastName)
+	})
+	.listen(3456);
 
-		});
-
-http.createServer(app).listen(3456,'localhost');
-
-console.log("Listening on port 3456")
+console.log("Listeing on port 3456")
