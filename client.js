@@ -1,7 +1,7 @@
 var request = require('request');
 var fs = require("fs");
 
-request("http://localhost:3456/hello",function(error,response,body){
+request("http://localhost:3456/imgtotext/?url=http://tesseract.projectnaptha.com/img/eng_bw.png",function(error,response,body){
 
 	if(error){
 		console.log(error);
